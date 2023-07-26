@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="15.0" key="{4F11F45B-92BB-4DD0-8E03-C45F2583F46A}">
+	<children>
+		<child name="TestHollandandBarrett" key="{41E06B61-268A-4825-BB69-7E1E4DC15FED}" path="TestHollandandBarrett\TestHollandandBarrett.mds" />
+	</children>
+	<testItems key="{65D3A914-EBDC-45BC-BDB7-24C1746B3574}">
+		<children>
+			<testItem key="{41E06B61-268A-4825-BB69-7E1E4DC15FED}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{852C141F-2B00-4188-91E3-5EAD07814D90}" />
+	<analysis key="{439CEDC6-3AB3-4EF4-9232-AF5B0F14D3F6}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+</Root>

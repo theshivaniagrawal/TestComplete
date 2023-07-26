@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{9252F941-DB23-4FCA-AA50-858B33BB4A19}" version="11.40">
+	<children>
+		<child name="CreateAccount" key="{3AC74399-4606-49E4-A9E4-B68F83C46F4D}" path="CreateAccount.js" />
+		<child name="LoginAddingInCart" key="{5D4D8735-8C5A-45FF-914B-04D2A22F2B62}" path="LoginAddingInCart.js" />
+		<child name="AddingItemsToCart" key="{2FBE57FF-5010-49AA-A121-1381F192330B}" path="AddingItemsToCart.js" />
+	</children>
+</Root>

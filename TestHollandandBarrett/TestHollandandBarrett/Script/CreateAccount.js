@@ -1,0 +1,51 @@
+﻿function CreateAccount()
+{
+  //Launches the specified browser and opens the specified URL in it.
+  //Browsers.Item(btChrome).Run("https://www.hollandandbarrett.com/en-au/", 10);
+  //Opens the specified URL in a running instance of the specified browser.
+  Browsers.Item(btChrome).Navigate("https://www.hollandandbarrett.com/en-au/", 50);
+  //Maximizes the specified Window object.
+  Aliases.browser.BrowserWindow.Maximize();
+  //Clicks the 'panel' control.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.navMyAccount.linkRewards.panel.Click();
+  //Checkpoint for RewardClick
+  aqObject.CheckProperty(Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.textnodeCreateAnAccount, "contentText", cmpEqual, "Create an account");
+  //Clicks the 'textboxFirstName' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxFirstName.Click();
+  //Sets the text 'Test' in the 'textboxFirstName' text editor.
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let FirstName = '';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < 5; i++ ) {
+        FirstName += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxFirstName.SetText(FirstName);
+  //Clicks the 'textboxLastName' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxLastName.Click();
+  //Sets the text 'first' in the 'textboxLastName' text editor.
+  let LastName = '';
+    for ( let i = 0; i < 5; i++ ) {
+        LastName += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxLastName.SetText(LastName);
+  //Clicks the 'emailinputEmailAddress' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputEmailAddress.Click();
+  //Sets the text 'testfirst@gmail.com' in the 'emailinputEmailAddress' text editor.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputEmailAddress.SetText(FirstName+LastName+"@gmail.com");
+  //Clicks the 'emailinputConfirmEmailAddress' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputConfirmEmailAddress.Click();
+  //Sets the text 'testfirst@gmail.com' in the 'emailinputConfirmEmailAddress' text editor.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputConfirmEmailAddress.SetText(FirstName+LastName+"@gmail.com");
+  //Sets the text Project.Variables.Password1 in the 'passwordboxCreateAPassword' text editor.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.passwordboxCreateAPassword.SetText(Project.Variables.Password1);
+  //Clicks the 'passwordboxCreateAPassword' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.passwordboxCreateAPassword.Click();
+  //Sets the state of the 'checkboxConsentemail' checkbox to True.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.labelEmailMeAbout.checkboxConsentemail.ClickChecked(true);
+  //Sets the state of the 'checkboxTerms' checkbox to True.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.labelIAgreeToTheRewardsForLife.checkboxTerms.ClickChecked(true);
+  //Clicks the 'buttonCreateAnAccount' button.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.buttonCreateAnAccount.ClickButton();
+  //Checks whether the 'contentText' property of the Aliases.browser.pageRegisterHollandBarrettTheUkS.FindElement("//h4[.='Account created']") object equals 'Account created'.
+  aqObject.CheckProperty(Aliases.browser.pageRegisterHollandBarrettTheUkS.FindElement("//h4[.='Account created']"), "contentText", cmpEqual, "Account created");
+}

@@ -1,0 +1,117 @@
+﻿function CreateAccount()
+{
+  //Launches the specified browser and opens the specified URL in it.
+  //Browsers.Item(btChrome).Run("https://www.hollandandbarrett.com/en-au/", 10);
+  //Opens the specified URL in a running instance of the specified browser.
+  Browsers.Item(btChrome).Navigate("https://www.hollandandbarrett.com/en-au/", 50);
+  //Maximizes the specified Window object.
+  Aliases.browser.BrowserWindow.Maximize();
+  //Clicks the 'panel' control.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.navMyAccount.linkRewards.panel.Click();
+  //Checkpoint for RewardClick
+  aqObject.CheckProperty(Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.textnodeCreateAnAccount, "contentText", cmpEqual, "Create an account");
+  //Clicks the 'textboxFirstName' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxFirstName.Click();
+  //Sets the text 'Test' in the 'textboxFirstName' text editor.
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let FirstName = '';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < 5; i++ ) {
+        FirstName += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxFirstName.SetText(FirstName);
+  //Clicks the 'textboxLastName' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxLastName.Click();
+  //Sets the text 'first' in the 'textboxLastName' text editor.
+  let LastName = '';
+    for ( let i = 0; i < 5; i++ ) {
+        LastName += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.textboxLastName.SetText(LastName);
+  //Clicks the 'emailinputEmailAddress' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputEmailAddress.Click();
+  //Sets the text 'testfirst@gmail.com' in the 'emailinputEmailAddress' text editor.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputEmailAddress.SetText(FirstName+LastName+"@gmail.com");
+  //Clicks the 'emailinputConfirmEmailAddress' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputConfirmEmailAddress.Click();
+  //Sets the text 'testfirst@gmail.com' in the 'emailinputConfirmEmailAddress' text editor.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.emailinputConfirmEmailAddress.SetText(FirstName+LastName+"@gmail.com");
+  //Sets the text Project.Variables.Password1 in the 'passwordboxCreateAPassword' text editor.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.passwordboxCreateAPassword.SetText(Project.Variables.Password1);
+  //Clicks the 'passwordboxCreateAPassword' control.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.passwordboxCreateAPassword.Click();
+  //Sets the state of the 'checkboxConsentemail' checkbox to True.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.labelEmailMeAbout.checkboxConsentemail.ClickChecked(true);
+  //Sets the state of the 'checkboxTerms' checkbox to True.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.labelIAgreeToTheRewardsForLife.checkboxTerms.ClickChecked(true);
+  //Clicks the 'buttonCreateAnAccount' button.
+  Aliases.browser.pageRegisterHollandBarrettTheUkS.articleBack.sectionAlreadyHaveAnAccount.formFirstName.buttonCreateAnAccount.ClickButton();
+  //Checks whether the 'contentText' property of the Aliases.browser.pageRegisterHollandBarrettTheUkS.FindElement("//h4[.='Account created']") object equals 'Account created'.
+  aqObject.CheckProperty(Aliases.browser.pageRegisterHollandBarrettTheUkS.FindElement("//h4[.='Account created']"), "contentText", cmpEqual, "Account created");
+}
+
+function AddingItemsToCart()
+{
+  //Launches the specified browser and opens the specified URL in it.
+  Browsers.Item(btChrome).Run("https://www.hollandandbarrett.com/");
+  //Maximizes the specified Window object.
+  Aliases.browser.BrowserWindow.Maximize();
+  //Clicks the 'textnodeAccount' control.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.navMyAccount2.linkAccount.textnodeAccount.Click();
+  //Waits until the browser loads the page and is ready to accept user input.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.Wait();
+  //Checks whether the 'contentText' property of the Aliases.browser.pageLogin.FindElement("//p[.='Sign in to your account, for the best experience']") object equals 'Sign in to your account, for the best experience'.
+  aqObject.CheckProperty(Aliases.browser.pageLogin.FindElement("//p[.='Sign in to your account, for the best experience']"), "contentText", cmpEqual, "Sign in to your account, for the best experience");
+  //Clicks the 'textboxEmailAddress' control.
+  Aliases.browser.pageLogin.sectionMyAccount.formEmailAddress.textboxEmailAddress.Click();
+  //Sets the text 'testlast@gmail.com' in the 'textboxEmailAddress' text editor.
+  Aliases.browser.pageLogin.sectionMyAccount.formEmailAddress.textboxEmailAddress.SetText("testlast@gmail.com");
+  //Clicks the 'passwordboxPassword' control.
+  Aliases.browser.pageLogin.sectionMyAccount.formEmailAddress.passwordboxPassword.Click();
+  //Sets the text Project.Variables.Password2 in the 'passwordboxPassword' text editor.
+  Aliases.browser.pageLogin.sectionMyAccount.formEmailAddress.passwordboxPassword.SetText(Project.Variables.Password2);
+  //Clicks the 'buttonAction' button.
+  Aliases.browser.pageLogin.sectionMyAccount.formEmailAddress.buttonAction.ClickButton();
+  //Waits until the browser loads the page and is ready to accept user input.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.Wait();
+  //Drags the 'linkVitaminsSupplements' object.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.sectionMenopauseHub.navMenopauseHub.linkVitaminsSupplements.Drag(4, 8, 144, 5);
+  //Clicks the 'panelVitaminC' control.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.sectionMenopauseHub.navMenopauseHub.textnodeVitaminsSupplements.panelVitaminC.Click();
+  //Drags the 'linkVitaminsSupplements' object.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.sectionMenopauseHub.navMenopauseHub.linkVitaminsSupplements.Drag(88, 27, 12, 10);
+  //Drags the 'linkVitaminsSupplements' object.
+  Aliases.browser.pageHollandBarrettUkSLeadingHeal.sectionMenopauseHub.navMenopauseHub.linkVitaminsSupplements.Drag(88, 27, 12, 10);
+  //Clicks the 'buttonAddToBasket' button.
+  Aliases.browser.pageVitaminCTabletsSupplementsSh.linkBuy1Get1HalfPrice2.buttonAddToBasket.ClickButton();
+  //Clicks the 'buttonAddToBasket' button.
+  Aliases.browser.pageVitaminCTabletsSupplementsSh.linkBuy1Get1HalfPrice2.buttonAddToBasket.ClickButton();
+  //Drags the 'searchbox' object.
+  Aliases.browser.pageVitaminCTabletsSupplementsSh.searchbox.Drag(170, 25, 150, -8);
+  //Sets the text 'vegan chocolate' in the 'searchbox' text editor.
+  Aliases.browser.pageVitaminCTabletsSupplementsSh.searchbox.SetText("vegan chocolate");
+  //Clicks the 'button' button.
+  Aliases.browser.pageVitaminCTabletsSupplementsSh.button.ClickButton();
+  //Waits until the browser loads the page and is ready to accept user input.
+  Aliases.browser.pageWwwHollandandbarrettComSearc.Wait();
+  //Clicks the 'buttonAddToBasket2' button.
+  Aliases.browser.pageWwwHollandandbarrettComSearc.linkBuy1Get1HalfPrice2.buttonAddToBasket2.ClickButton();
+  //Clicks the 'buttonAddToBasket2' button.
+  Aliases.browser.pageWwwHollandandbarrettComSearc.linkBuy1Get1HalfPrice2.buttonAddToBasket2.ClickButton();
+  //Clicks the 'buttonAddToBasket2' button.
+  Aliases.browser.pageWwwHollandandbarrettComSearc.linkBuy1Get1HalfPrice2.buttonAddToBasket2.ClickButton();
+  //Drags the 'buttonAddToBasket2' object.
+  Aliases.browser.pageWwwHollandandbarrettComSearc.linkBuy1Get1HalfPrice2.buttonAddToBasket2.Drag(117, 15, 237, 3);
+  //Clicks the 'textnodeBasket' control.
+  Aliases.browser.pageWwwHollandandbarrettComSearc.link2.textnodeBasket.Click();
+  //Waits until the browser loads the page and is ready to accept user input.
+  Aliases.browser.pageBasket.Wait();
+  //Checks whether the 'contentText' property of the Aliases.browser.pageBasket.FindElement("//h1[.='Your basket']") object equals 'Your basket'.
+  aqObject.CheckProperty(Aliases.browser.pageBasket.FindElement("//h1[.='Your basket']"), "contentText", cmpEqual, "Your basket");
+  //Clicks the 'textnode' control.
+  Aliases.browser.pageBasket.textnode.Click();
+  //Checks whether the 'contentText' property of the Aliases.browser.pageBasket.FindElement("//span[contains(text(), '(')]") object equals '(
+  //5 items
+  //)'.
+  aqObject.CheckProperty(Aliases.browser.pageBasket.FindElement("//span[contains(text(), '(')]"), "contentText", cmpEqual, "(\n5 items\n)");
+}
